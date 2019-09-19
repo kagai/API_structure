@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 const port = process.env.PORT || 8000;
 
-app.use('/api/v1/books', userRoutes);
+app.use('/api/v1/users', userRoutes);
 
 // when a random route is inputed
 app.get('*', (req, res) => res.status(200).send({
