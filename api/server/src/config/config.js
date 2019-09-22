@@ -11,17 +11,19 @@ module.exports = {
   development: {
     database: 'mip',
     username: 'postgres',
-    password: null,
+    password: 'password',
     host: '127.0.0.1',
-    dialect: 'postgres'
+    dialect: 'postgres',
+    port : 5432
   },
 
   test: {
     database: 'mip',
     username: 'postgres',
-    password: null,
+    password: 'password',
     host: '127.0.0.1',
-    dialect: 'postgres'
+    dialect: 'postgres',
+    port : 5432
   },
 
   production: {

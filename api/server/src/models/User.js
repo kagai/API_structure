@@ -69,6 +69,6 @@ module.exports = (sequelize, DataTypes) => {
     is_agent: {
       type: DataTypes.BOOLEAN
     }
-  });
+  }, { timestamps: false});
   return User;
 };
