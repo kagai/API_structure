@@ -5,6 +5,10 @@ import Util from '../utils/Utils';
 const util = new Util();
 
 class UserController {
+    constructor(app){
+     this.app = app;
+    }
+
   static async getAllUsers(req, res) {
     try {
       const allUsers = await UserService.getAllUsers();
