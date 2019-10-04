@@ -14,7 +14,7 @@ class UserController {
         util.setSuccess(200, 'No users found');
       }
       return util.send(res);
-    } catch (error) {  
+    } catch (error) {
       util.setError(400, error);
       return util.send(res);
     }
@@ -30,7 +30,7 @@ class UserController {
         util.setSuccess(200, 'No users found');
       }
       return util.send(res);
-    } catch (error) {  
+    } catch (error) {
       util.setError(400, error);
       return util.send(res);
     }
@@ -64,14 +64,9 @@ class UserController {
 
   static async updateUser(req, res) {
     try {
-      const allUsers = await UserService.getAllUsers();
-      if (allUsers.length > 0) {
-        util.setSuccess(200, 'Users retrieved', allUsers);
-      } else {
-        util.setSuccess(200, 'No users found');
-      }
-      return util.send(res);
-    } catch (error) {  
+      const updatedUser = await UserService.uodateUser(id);
+
+    } catch (error) {
       util.setError(400, error);
       return util.send(res);
     }
@@ -79,20 +74,17 @@ class UserController {
 
   static async deleteUser(req, res) {
     const { user_id } = req.body;
-      console.log('------------id------------',user_id);
-      
-    if (!Number(id)) {
+    if (!Number(user_id)) {
       util.setError(400, 'Please provide a numeric value');
       return util.send(res);
     }
-
     try {
-      const userToDelete = await UserService.deleteUser(id);
+      const userToDelete = await UserService.deleteUser(user_id);
 
       if (userToDelete) {
         util.setSuccess(200, 'User deleted');
       } else {
-        util.setError(404, `User with the id ${id} cannot be found`);
+        util.setError(404, `User with the id ${user_id} cannot be found`);
       }
       return util.send(res);
     } catch (error) {
@@ -100,7 +92,7 @@ class UserController {
       return util.send(res);
     }
   }
-  
+
 }
 
 export default UserController;
