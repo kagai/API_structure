@@ -1,10 +1,8 @@
 import fs from 'fs';
-
-
 import Sequelize  from 'sequelize';
 import config from 'dotenv';
 
-
+import Controller from './server/controllers/index';
 
 class Helpers {
  // TO be used when one wants to write raw queries in the app 
@@ -21,9 +19,8 @@ class Helpers {
 
 		return seq;
      }
-    static passAppObjectToControllers(){
-       let file =  fs.readdirSync(__dirname + '/server/controllers')
-        
+    static passAppObjectToControllers(app){
+       Controller(app)
     }
 
 }
